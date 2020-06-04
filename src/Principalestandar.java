@@ -1,5 +1,6 @@
 
 
+import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Menu;
@@ -9,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 import java.text.ParseException;
 
 public class Principalestandar extends Frame implements WindowListener{
@@ -27,7 +29,7 @@ public class Principalestandar extends Frame implements WindowListener{
 
 	MenuItem FAlta = new MenuItem("Alta");
 
-
+	Button ayuda = new Button("Ayuda");
 	public Principalestandar() { 
 		setTitle("Panaderia");
 		addWindowListener(this);
@@ -49,6 +51,22 @@ public class Principalestandar extends Frame implements WindowListener{
 		setSize(200,200);
 		setResizable(false);
 		setVisible(true);
+		add(ayuda);
+		ayuda.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try
+				{
+					Runtime.getRuntime().exec("hh.exe AyudaUsu.chm");
+				}
+				catch (IOException e1)
+				{
+					e1.printStackTrace();
+				}
+
+			}
+		});
 		//Panes
 		mPanAlta.addActionListener(new ActionListener() {
 
